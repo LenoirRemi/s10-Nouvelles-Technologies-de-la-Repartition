@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/stylesheets/application.css}"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <h4 class="display-6 col-md-8 offset-md-2 text-center" th:utext="${userName}"></h4>
+        </div>
+    </div>
+    <form th:action="@{/logout}" method="get" class="fixed-bottom">
+        <button class="btn btn-danger btn-block btn-lg" type="Submit">Logout</button>
+    </form>
+</body>
+</html>
