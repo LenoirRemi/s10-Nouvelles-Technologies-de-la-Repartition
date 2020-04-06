@@ -20,6 +20,8 @@ public class User implements UserDetails {
     @Email(message = "*Merci d'insérer un email valide")
     @NotEmpty(message = "*Ce champs est obligatoire")
     private String email;
+    @Column(name = "USER_BALANCE", nullable = false, columnDefinition = "float(10,2) default 0.00")
+    private float balance;
     @Column(name="USER_PASSWORD", length=200, nullable=false)
     @NotEmpty(message = "*Ce champs est obligatoire")
     private String password;
@@ -138,6 +140,13 @@ public class User implements UserDetails {
         this.roles = roles;
     }
 
+    public float getBalance() {
+        return balance;
+    }
+
+    public void setBalance(float balance) {
+        this.balance = balance;
+    }
 
     @Override
     public String toString() {

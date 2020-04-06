@@ -1,6 +1,8 @@
 package com.istv.banq.controller;
 
+import com.istv.banq.model.History;
 import com.istv.banq.model.User;
+import com.istv.banq.service.HistoryService;
 import com.istv.banq.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -20,14 +22,26 @@ import java.util.List;
 public class MainController {
     @Autowired
     UserService userService;
+    @Autowired
+    HistoryService historyService;
 
     @RequestMapping(value="/home", method = RequestMethod.GET)
     public ModelAndView home(){
         ModelAndView modelAndView = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByEmail(auth.getName());
+        modelAndView.addObject("user", user);
         modelAndView.addObject("userName", "Welcome " + user.getName() + " " + user.getLastName());
-        modelAndView.setViewName("home.html");
+        modelAndView.setViewName("home");
         return modelAndView;
     }
+
+    @RequestMapping(value="/history", method = RequestMethod.GET)
+    public ModelAndView history(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("histories", historyService.listAll());
+        modelAndView.setViewName("history");
+        return modelAndView;
+    }
+
 }
