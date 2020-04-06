@@ -10,32 +10,18 @@
 </head>
 <body>
 <div class="row">
-<<<<<<< HEAD
     <div class="col-md-2">
         <form th:action="@{/home}" method="get">
-            <button class="btn btn-info btn-block btn-lg" type="Submit">Home</button>
+            <button class="btn btn-info btn-block btn-lg" type="Submit"><i class="fa fa-arrow-left"></i> Home</button>
         </form>
     </div>
     <div class="col-md-2 offset-md-8">
-=======
-    <div class="col-md-2 offset-md-10">
->>>>>>> add crud
         <form th:action="@{/logout}" method="get">
             <button class="btn btn-danger btn-block btn-lg" type="Submit">Logout</button>
         </form>
     </div>
 </div>
 <div class="container">
-    <div class="row">
-        <h4 class="display-6 col-md-8 offset-md-2 text-center" th:utext="${userName}"></h4>
-    </div>
-    <div class="row mt-5">
-        <form th:action="@{/home}" method="get" class="col-md-3 offset-md-2">
-            <button type="submit" class="btn btn-info col-md-12">
-                <i class="fa fa-user"></i><br>Home
-            </button>
-        </form>
-    </div>
     <div class="row">
         <label class="col-md-4 col-form-label">History : </label>
         <!-- filter <div th:each="appartment: ${appartments.?[owner.name == __${user_name}__]}" class="col-md-4">-->
@@ -49,10 +35,5 @@
         </div>
     </div>
 </div>
-<<<<<<< HEAD
-
-
-=======
->>>>>>> add crud
 </body>
 </html>

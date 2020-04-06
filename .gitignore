@@ -85,7 +85,7 @@ Temporary Items
  .idea/modules.xml
  .idea/*.iml
  .idea/modules
- .idea/*
+ .idea
  *.iml
  *.ipr
 
