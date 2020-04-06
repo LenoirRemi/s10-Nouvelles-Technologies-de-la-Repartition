@@ -9,9 +9,6 @@
 </head>
 <body>
 
-<form th:action="@{/registration}" method="get">
-    <button class="btn btn-warning btn-block btn-lg" type="Submit">Go To Registration Page</button>
-</form>
 <div class="m-4"></div>
 <div class="container">
     <img src="" class="d-block mx-auto" width="300" alt="Logo" />
@@ -22,11 +19,19 @@
                     <br/>
                     <input type="text" id="email" name="email"  th:placeholder="Email" class="form-control" /> <br/>
                     <input type="password"  th:placeholder="Password" id="password" name="password" class="form-control" /> <br/>
-                
+
                     <div align="center" th:if="${param.error}">
                         <p style="font-size: 20; color: #FF1C19;">Email or Password invalid, please verify</p>
-                    </div>  
-                    <button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="Submit" th:text="Login"></button>
+                    </div>
+                    <div class="col-md-12">
+                        <button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="Submit" th:text="Login"></button>
+                    </div>
+                </form>
+                <br/>
+                <div class="col-md-12">
+                    <form th:action="@{/registration}" method="get">
+                        <button class="btn btn-warning btn-block btn-lg" type="Submit">Register</button>
+                    </form>
                 </div>
             </div>
         </div>
