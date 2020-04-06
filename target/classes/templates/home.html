@@ -9,13 +9,15 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            <h4 class="display-6 col-md-8 offset-md-2 text-center" th:utext="${userName}"></h4>
-        </div>
+<div class="container">
+    <div class="row">
+        <h4 class="display-6 col-md-8 offset-md-2 text-center" th:utext="${userName}"></h4>
     </div>
-    <form th:action="@{/logout}" method="get" class="fixed-bottom">
-        <button class="btn btn-danger btn-block btn-lg" type="Submit">Logout</button>
-    </form>
+</div>
+
+<form th:action="@{/logout}" method="get" class="fixed-bottom">
+    <button class="btn btn-danger btn-block btn-lg" type="Submit">Logout</button>
+</form>
+
 </body>
 </html>
