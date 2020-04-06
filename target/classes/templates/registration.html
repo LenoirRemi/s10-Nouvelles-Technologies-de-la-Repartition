@@ -9,9 +9,6 @@ xmlns:th="http://www.thymeleaf.org">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <form th:action="@{/}" method="get">
-        <button class="btn btn-md btn-warning btn-block btn-lg" type="Submit">Go To Login Page</button>
-    </form>
     <div class="m-4"></div>
     <div class="container">
         <div class="row">
@@ -48,10 +45,14 @@ xmlns:th="http://www.thymeleaf.org">
                     placeholder="Password" class="form-control" /> 
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-block">Register User</button>
+                    <button type="submit" class="btn btn-primary btn-block btn-lg">Register User</button>
                 </div>
-                
                 <span th:utext="${successMessage}"></span>
+            </form>
+        </div>
+        <div class="col-md-4 offset-md-4">
+            <form th:action="@{/}" method="get">
+                <button class="btn btn-md btn-warning btn-block btn-lg" type="Submit">Go To Login Page</button>
             </form>
         </div>
     </div>
