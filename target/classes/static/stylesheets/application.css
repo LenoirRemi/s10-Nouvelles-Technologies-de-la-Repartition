@@ -6,29 +6,9 @@ h3 {
     animation: 0.5s rotate360 ease-in-out;
 }
 
-.linear-shine {
-    text-align: center;
-    background: -webkit-gradient(linear, left top, right top, color-stop(20%, #FFF), color-stop(40%, #FF0), color-stop(60%, #FF0), color-stop(80%, #FFF));
-    background: linear-gradient(to right, #000 20%, #777 40%, #777 60%, #000 80%);
-    background-size: 200% auto;
-    color: #000;
-    background-clip: text;
-    text-fill-color: transparent;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -webkit-animation: shine 1s linear infinite;
-    animation: shine 1s linear infinite;
-}
-
 @-webkit-keyframes rotate360 {
     to {transform: rotate(-360deg);}
 }
 @keyframes rotate360 {
     to {transform: rotate(-360deg);}
-}
-@-webkit-keyframes shine {
-    to {background-position: 200% center;}
-}
-@keyframes shine {
-    to {background-position: 200% center;}
 }
