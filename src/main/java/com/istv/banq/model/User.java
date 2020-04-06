@@ -9,7 +9,10 @@ import javax.validation.constraints.NotEmpty;
 import java.util.Collection;
 import java.util.Set;
 
+import org.springframework.data.rest.core.annotation.RestResource;
+
 @Entity
+@RestResource
 @Table(name = "USER")
 public class User implements UserDetails {
     @Id
