@@ -27,7 +27,7 @@ public class MainController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByEmail(auth.getName());
         modelAndView.addObject("userName", "Welcome " + user.getName() + " " + user.getLastName());
-        modelAndView.setViewName("home.html");
+        modelAndView.setViewName("home");
         return modelAndView;
     }
 }
