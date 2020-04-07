@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="76ad2940-7e94-41f8-99f8-84dcd9528866" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../wildfly-web-service/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wildfly-web-service/src/main/java/com/istv/banq/HelloWorldService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wildfly-web-service/src/main/java/com/istv/banq/HelloWorldServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wildfly-web-service/src/main/webapp/WEB-INF/beans.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wildfly-web-service/src/main/webapp/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wildfly-web-service/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wildfly-web-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wildfly-web-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wildfly-web-service/target/wildfly-greeter/WEB-INF/beans.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wildfly-web-service/target/wildfly-greeter/index.html" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1aDO44rvA7PPnCXGE5F60DjVk3s" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RunManager">
+    <configuration name="ServiceHelloStarter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.istv.banq.ServiceHelloStarter" />
+      <module name="wildfly-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.istv.banq.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ServiceHelloStarter" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="76ad2940-7e94-41f8-99f8-84dcd9528866" name="Default Changelist" comment="" />
+      <created>1586266505847</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1586266505847</updated>
+      <workItem from="1586266521206" duration="545000" />
+      <workItem from="1586267300754" duration="1524000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1316" height="173" key="GridCell.Tab.0.bottom" timestamp="1586268438257">
+      <screen x="0" y="28" width="1366" height="740" />
+    </state>
+    <state width="1316" height="173" key="GridCell.Tab.0.bottom/0.28.1366.740@0.28.1366.740" timestamp="1586268438257" />
+    <state width="1316" height="173" key="GridCell.Tab.0.center" timestamp="1586268438256">
+      <screen x="0" y="28" width="1366" height="740" />
+    </state>
+    <state width="1316" height="173" key="GridCell.Tab.0.center/0.28.1366.740@0.28.1366.740" timestamp="1586268438256" />
+    <state width="1316" height="173" key="GridCell.Tab.0.left" timestamp="1586268438256">
+      <screen x="0" y="28" width="1366" height="740" />
+    </state>
+    <state width="1316" height="173" key="GridCell.Tab.0.left/0.28.1366.740@0.28.1366.740" timestamp="1586268438256" />
+    <state width="1316" height="173" key="GridCell.Tab.0.right" timestamp="1586268438257">
+      <screen x="0" y="28" width="1366" height="740" />
+    </state>
+    <state width="1316" height="173" key="GridCell.Tab.0.right/0.28.1366.740@0.28.1366.740" timestamp="1586268438257" />
+    <state x="216" y="56" width="924" height="682" key="Maven.ArtifactSearchDialog" timestamp="1586267967358">
+      <screen x="0" y="28" width="1366" height="740" />
+    </state>
+    <state x="216" y="56" width="924" height="682" key="Maven.ArtifactSearchDialog/0.28.1366.740@0.28.1366.740" timestamp="1586267967358" />
+    <state x="164" y="28" width="1024" height="738" key="SettingsEditor" timestamp="1586268077146">
+      <screen x="0" y="28" width="1366" height="740" />
+    </state>
+    <state x="164" y="28" width="1024" height="738" key="SettingsEditor/0.28.1366.740@0.28.1366.740" timestamp="1586268077146" />
+    <state x="338" y="225" key="com.intellij.ide.util.TipDialog" timestamp="1586267301422">
+      <screen x="0" y="28" width="1366" height="740" />
+    </state>
+    <state x="338" y="225" key="com.intellij.ide.util.TipDialog/0.28.1366.740@0.28.1366.740" timestamp="1586267301422" />
+  </component>
+</project>
