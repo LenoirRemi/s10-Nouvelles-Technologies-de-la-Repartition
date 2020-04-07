@@ -3,6 +3,7 @@ package com.istv.banq.configuration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -41,6 +42,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
         http.
                 authorizeRequests()
+                .antMatchers(HttpMethod.GET,"/users").permitAll()
+                .antMatchers(HttpMethod.POST,"/users").permitAll()
+                .antMatchers(HttpMethod.PUT,"/users").permitAll()
+                .antMatchers(HttpMethod.DELETE,"/users").permitAll()
                 .antMatchers("/").permitAll()
                 .antMatchers("/login").permitAll()
                 .antMatchers("/registration").permitAll()
