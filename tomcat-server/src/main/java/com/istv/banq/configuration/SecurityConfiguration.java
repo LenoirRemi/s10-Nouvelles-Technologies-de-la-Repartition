@@ -1,5 +1,6 @@
 package com.istv.banq.configuration;
 
+import org.apache.tomcat.util.http.parser.HttpParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
@@ -42,6 +43,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
         http.
                 authorizeRequests()
+                .antMatchers(HttpMethod.POST,"/credit").permitAll()
+                .antMatchers(HttpMethod.POST,"/debit").permitAll()
                 .antMatchers(HttpMethod.GET,"/users").permitAll()
                 .antMatchers(HttpMethod.POST,"/users").permitAll()
                 .antMatchers(HttpMethod.PUT,"/users").permitAll()

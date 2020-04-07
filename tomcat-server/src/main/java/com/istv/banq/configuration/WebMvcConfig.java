@@ -15,6 +15,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
         return bCryptPasswordEncoder;
     }
 
+    
     @Override
     public void configurePathMatch(PathMatchConfigurer configurer) {
         AntPathMatcher matcher = new AntPathMatcher();

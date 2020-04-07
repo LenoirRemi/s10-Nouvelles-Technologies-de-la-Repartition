@@ -11,6 +11,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @RepositoryRestResource(collectionResourceRel = "users", path = "users")
-public interface UserRepositoryCrud extends CrudRepository<User, Integer> {
-    List<User> findByName(@Param("name") String name);
+public interface UserRepositoryCrudJson extends CrudRepository<User, Integer> {
+    User findByName(@Param("name") String name);
 }

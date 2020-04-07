@@ -6,6 +6,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Collection;
 import java.util.Set;
 
@@ -47,8 +48,9 @@ public class User implements UserDetails {
 
     }
 
-    public User(int id, String email, String password, String name, String lastName, int active) {
+    public User(int id, String email, String password, String name, String lastName, int active, float balance) {
         this.id = id;
+        this.balance = balance;
         this.email = email;
         this.password = password;
         this.name = name;

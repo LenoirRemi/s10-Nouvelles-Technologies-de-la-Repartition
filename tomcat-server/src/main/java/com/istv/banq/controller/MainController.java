@@ -1,24 +1,25 @@
 package com.istv.banq.controller;
 
+import ch.qos.logback.core.joran.util.beans.BeanUtil;
 import com.istv.banq.model.History;
 import com.istv.banq.model.User;
 import com.istv.banq.service.HistoryService;
 import com.istv.banq.service.UserService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
+import java.awt.*;
 import java.util.List;
 
-@Controller
+@RestController
 public class MainController {
     @Autowired
     UserService userService;
@@ -44,4 +45,15 @@ public class MainController {
         return modelAndView;
     }
 
+    @ResponseBody
+    @PostMapping(path = "/credit", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    public String creditRequest(@RequestBody User user, BindingResult bindingResult) {
+        //User userRest = new User();
+        //BeanUtils.copyProperties(user, userRest);
+        //System.out.println("controler, user xml : "+userRest);
+        userService.saveBalance(user.getName(), user.getBalance());
+        //System.out.println("saveBalance called");
+
+        return "Account credited";
+    }
 }
