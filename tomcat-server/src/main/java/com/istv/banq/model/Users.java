@@ -11,7 +11,7 @@ import java.util.List;
 @JacksonXmlRootElement
 public class Users implements Serializable {
 
-    @JacksonXmlProperty(localName = "Users")
+    @JacksonXmlProperty(localName = "User")
     @JacksonXmlElementWrapper(useWrapping = false)
     private List<User> users = new ArrayList<>();
 
