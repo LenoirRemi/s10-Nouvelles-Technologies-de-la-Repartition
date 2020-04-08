@@ -1,5 +1,7 @@
 package com.istv.banq.model;
 
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -7,6 +9,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Set;
 
@@ -15,16 +18,20 @@ import org.springframework.data.rest.core.annotation.RestResource;
 @Entity
 @RestResource
 @Table(name = "USER")
-public class User implements UserDetails {
+@JacksonXmlRootElement(localName = "User")
+public class User implements UserDetails, Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "USER_ID", nullable=false, unique=true)
+    @JacksonXmlProperty(isAttribute = true)
     private int id;
     @Column(name="USER_EMAIL", length=50, nullable=false, unique=true)
     @Email(message = "*Merci d'insérer un email valide")
     @NotEmpty(message = "*Ce champs est obligatoire")
+    @JacksonXmlProperty
     private String email;
     @Column(name = "USER_BALANCE", nullable = false, columnDefinition = "float(10,2) default 0.00")
+    @JacksonXmlProperty
     private float balance;
     @Column(name="USER_PASSWORD", length=200, nullable=false)
     @NotEmpty(message = "*Ce champs est obligatoire")

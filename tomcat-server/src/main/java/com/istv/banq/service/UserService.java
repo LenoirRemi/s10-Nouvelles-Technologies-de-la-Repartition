@@ -2,6 +2,7 @@ package com.istv.banq.service;
 
 import com.istv.banq.model.Role;
 import com.istv.banq.model.User;
+import com.istv.banq.model.Users;
 import com.istv.banq.repository.RoleRepository;
 import com.istv.banq.repository.UserRepository;
 import com.istv.banq.repository.UserRepositoryCrudJson;
@@ -48,8 +49,16 @@ public class UserService {
         return users;
     }
 
-    public void saveBalance(String name, float balance){
-        User user = userRepository.findByName(name);
+    public Users findAll() {
+        var users = (List<User>) userRepositoryCrudJson.findAll();
+        var myUsers = new Users();
+        myUsers.setUsers(users);
+
+        return myUsers;
+    }
+
+    public void saveBalance(int id, float balance){
+        User user = userRepository.findById(id);
         float actual_balance = user.getBalance();
         user.setBalance(actual_balance + balance);
         userRepository.saveAndFlush(user);
