@@ -22,18 +22,14 @@
     </div>
 </div>
 <div class="container">
-    <div class="row">
-        <label class="col-md-4 col-form-label">History : </label>
+    <h4 class="col-md-4 col-form-label">History : </h4>
         <!-- filter <div th:each="appartment: ${appartments.?[owner.name == __${user_name}__]}" class="col-md-4">-->
-        <div  th:each="history: ${histories}" class="col-md-4">
-            <label class="col-md-4 col-form-label">Montant : </label>
-            <h5 th:utext="${history.amount}" class="card-title"></h5>
-            <label class="col-md-3 col-form-label">User 1: </label>
-            <p th:utext="${history.user1}" class="card-text"></p>
-            <label class="col-md-3 col-form-label">User 2: </label>
-            <p th:utext="${history.user2}" class="card-text"></p>
+        <div  th:each="history: ${histories}" th:if="${history.user1.getId() == user.getId() || history.user2.getId() == user.getId()}">
+            <div class="row">
+                <p th:utext="${history.getDate()}"></p>
+                <p th:utext="${' - Transaction n° '+ history.getId()+' - '+history.user1.getName()+' vers '+history.user2.getName()+' _ '+ history.getBalance()}+'€'"></pth:text>
+            </div>
         </div>
-    </div>
 </div>
 </body>
 </html>

@@ -38,6 +38,9 @@ public class MainController {
     @RequestMapping(value="/history", method = RequestMethod.GET)
     public ModelAndView history(){
         ModelAndView modelAndView = new ModelAndView();
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = userService.findUserByEmail(auth.getName());
+        modelAndView.addObject("user", user);
         modelAndView.addObject("histories", historyService.listAll());
         modelAndView.setViewName("history");
         return modelAndView;
@@ -46,7 +49,7 @@ public class MainController {
     @ResponseBody
     @PostMapping(path = "/transaction", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public String creditRequest(@RequestBody List<User> users, BindingResult bindingResult) {
-
+        historyService.saveHistory(users);
         String response = "";
         for (User user:users) {
             userService.saveBalance(user.getId(), user.getBalance());

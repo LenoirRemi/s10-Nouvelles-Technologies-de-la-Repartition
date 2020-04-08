@@ -1,6 +1,9 @@
 package com.istv.banq.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
+import java.sql.Date;
 
 @Entity
 @Table(name = "HISTORY")
@@ -9,6 +12,9 @@ public class History {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "HISTORY_ID")
     private int id;
+    @Column(name = "DATE", nullable = false, columnDefinition = "TIMESTAMP")
+    @DateTimeFormat
+    private Date date;
     @Column(name = "AMOUNT", nullable = false, columnDefinition = "float(10,2) default 0.00")
     private float balance;
     @OneToOne(fetch = FetchType.LAZY)
@@ -51,5 +57,13 @@ public class History {
 
     public void setUser2(User user2) {
         this.user2 = user2;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 }
