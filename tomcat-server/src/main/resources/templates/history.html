@@ -27,7 +27,7 @@
         <div  th:each="history: ${histories}" th:if="${history.user1.getId() == user.getId() || history.user2.getId() == user.getId()}">
             <div class="row">
                 <p th:utext="${history.getDate()}"></p>
-                <p th:utext="${' - Transaction n° '+ history.getId()+' - '+history.user1.getName()+' vers '+history.user2.getName()+' _ '+ history.getBalance()}+'€'"></pth:text>
+                <p th:utext="${' - Transaction n° '+ history.getId()+' - '+history.user1.getName()+' vers '+history.user2.getName()+' _ '+ history.getBalance()+'€'}"></p>
             </div>
         </div>
 </div>
