@@ -1,7 +1,6 @@
 package com.istv.banq;
 
 import java.io.StringWriter;
-import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import javax.jws.WebService;
@@ -12,6 +11,14 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import org.apache.commons.io.IOUtils;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.ContentType;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.util.EntityUtils;
 import org.json.*;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -34,14 +41,12 @@ public class BanqServiceImpl implements BanqService{
 
     @Override
     public String credit(Integer id, Double amount) {
-        double balance = checkBalance(id);
-        balance += amount;
         if(!updateBalance(id, amount)){
             return "error : impossible to update balance";
         }
         // return "success";
         // for debug purpose
-        return "success : new balance " + balance;
+        return "success : user credited with +" + amount + "€.";
     }
 
     @Override
@@ -50,22 +55,17 @@ public class BanqServiceImpl implements BanqService{
         if(balance < amount){
             return "error : not enough balance";
         }
-        balance -= amount;
+        amount = 0 - amount;
         if(!updateBalance(id, amount)){
             return "error : impossible to update balance";
         }
         // return "success";
         // for debug purpose
-        return "success : new balance " + balance;
+        return "success : user debited by " + amount + "€.";
     }
 
     private boolean updateBalance(Integer id, Double amount){
         try {
-            HttpURLConnection urlConnection;
-            URL url = new URL("http://localhost:8081/transaction");
-            urlConnection = (HttpURLConnection) url.openConnection();
-            urlConnection.setDoOutput(true);
-
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = docFactory.newDocumentBuilder();
             Document doc = documentBuilder.newDocument();
@@ -86,11 +86,14 @@ public class BanqServiceImpl implements BanqService{
 
             String query = stringWriter.getBuffer().toString();
 
-            urlConnection.addRequestProperty("Content-Type", "application/POST");
-            urlConnection.setRequestProperty("Content-Length", Integer.toString(query.length()));
-            urlConnection.getOutputStream().write(query.getBytes(StandardCharsets.UTF_8));
-            urlConnection.disconnect();
-
+            StringEntity entity = new StringEntity(query, ContentType.APPLICATION_XML);
+            HttpClient httpClient = HttpClientBuilder.create().build();
+            HttpPost request = new HttpPost("http://localhost:8081/transaction");
+            request.setEntity(entity);
+            HttpResponse response = httpClient.execute(request);
+            HttpEntity ent = response.getEntity();
+            String content = EntityUtils.toString(ent);
+            System.out.println(content);
         }catch (Exception e){
             System.out.println(e);
             return false;
