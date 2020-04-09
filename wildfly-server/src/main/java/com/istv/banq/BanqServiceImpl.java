@@ -36,7 +36,7 @@ public class BanqServiceImpl implements BanqService{
     public String credit(Integer id, Double amount) {
         double balance = checkBalance(id);
         balance += amount;
-        if(updateBalance(id, amount)){
+        if(!updateBalance(id, amount)){
             return "error : impossible to update balance";
         }
         // return "success";
@@ -51,7 +51,7 @@ public class BanqServiceImpl implements BanqService{
             return "error : not enough balance";
         }
         balance -= amount;
-        if(updateBalance(id, amount)){
+        if(!updateBalance(id, amount)){
             return "error : impossible to update balance";
         }
         // return "success";
@@ -64,6 +64,7 @@ public class BanqServiceImpl implements BanqService{
             HttpURLConnection urlConnection;
             URL url = new URL("http://localhost:8081/transaction");
             urlConnection = (HttpURLConnection) url.openConnection();
+            urlConnection.setDoOutput(true);
 
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = docFactory.newDocumentBuilder();
@@ -87,9 +88,9 @@ public class BanqServiceImpl implements BanqService{
 
             urlConnection.addRequestProperty("Content-Type", "application/POST");
             urlConnection.setRequestProperty("Content-Length", Integer.toString(query.length()));
-            urlConnection.setDoOutput(true);
             urlConnection.getOutputStream().write(query.getBytes(StandardCharsets.UTF_8));
             urlConnection.disconnect();
+
         }catch (Exception e){
             System.out.println(e);
             return false;
