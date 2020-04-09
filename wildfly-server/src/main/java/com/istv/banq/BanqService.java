@@ -6,7 +6,7 @@ import javax.jws.soap.SOAPBinding.Style;
 
 @WebService
 @SOAPBinding(style=Style.RPC)
-public  interface IHello {
+public  interface BanqService {
     @WebMethod
     String say(@WebParam(name="nom") final String name);
 }
