@@ -87,8 +87,8 @@ public class BanqServiceImpl implements BanqService{
 
             urlConnection.addRequestProperty("Content-Type", "application/POST");
             urlConnection.setRequestProperty("Content-Length", Integer.toString(query.length()));
-            urlConnection.getOutputStream().write(query.getBytes(StandardCharsets.UTF_8));
             urlConnection.setDoOutput(true);
+            urlConnection.getOutputStream().write(query.getBytes(StandardCharsets.UTF_8));
             urlConnection.disconnect();
         }catch (Exception e){
             System.out.println(e);
