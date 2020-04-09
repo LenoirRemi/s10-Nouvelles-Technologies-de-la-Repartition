@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "BanqServiceImplService", targetNamespace = "http://banq.istv.com/", wsdlLocation = "http://localhost:8080/banq?wsdl")
+@WebServiceClient(name = "BanqServiceImplService", targetNamespace = "http://banq.istv.com/", wsdlLocation = "http://localhost:8080/wildfly-server-1.0-SNAPSHOT/BanqServiceImpl?wsdl")
 public class BanqServiceImplService
     extends Service
 {
@@ -30,7 +30,7 @@ public class BanqServiceImplService
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("http://localhost:8080/banq?wsdl");
+            url = new URL("http://localhost:8080/wildfly-server-1.0-SNAPSHOT/BanqServiceImpl?wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }
