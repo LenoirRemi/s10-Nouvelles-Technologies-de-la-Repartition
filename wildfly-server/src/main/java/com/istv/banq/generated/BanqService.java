@@ -21,13 +21,37 @@ public interface BanqService {
 
     /**
      * 
+     * @param id
+     * @return
+     *     returns double
+     */
+    @WebMethod
+    @WebResult(partName = "return")
+    public double checkBalance(
+        @WebParam(name = "id", partName = "id")
+        int id);
+
+    /**
+     * 
      * @param nom
      * @return
      *     returns java.lang.String
      */
     @WebMethod
     @WebResult(partName = "return")
-    public String say(
+    public String credit(
+        @WebParam(name = "nom", partName = "nom")
+        String nom);
+
+    /**
+     * 
+     * @param nom
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(partName = "return")
+    public String debit(
         @WebParam(name = "nom", partName = "nom")
         String nom);
 
