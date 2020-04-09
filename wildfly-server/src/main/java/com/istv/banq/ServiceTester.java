@@ -8,5 +8,8 @@ public class ServiceTester {
         BanqServiceImplService service = new BanqServiceImplService();
         BanqService serviceProxy = service.getBanqServiceImplPort();
         System.out.println("Balance :" + serviceProxy.checkBalance(1));
+        double amount = 22.5;
+        System.out.println(serviceProxy.debit(1, amount));
+        System.out.println(serviceProxy.credit(1, amount));
     }
 }

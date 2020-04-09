@@ -11,8 +11,8 @@ public  interface BanqService {
     Double checkBalance(@WebParam(name="id") final Integer id);
 
     @WebMethod
-    String credit(@WebParam(name="nom") final String name);
+    String credit(@WebParam(name="id") final Integer id, @WebParam(name="amount") final Double amount);
 
     @WebMethod
-    String debit(@WebParam(name="nom") final String name);
+    String debit(@WebParam(name="id") final Integer id, @WebParam(name="amount") final Double amount);
 }

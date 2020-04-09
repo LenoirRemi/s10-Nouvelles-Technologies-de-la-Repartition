@@ -1,6 +1,4 @@
-sudo /opt/wildfly/bin/standalone.sh
-
-mvn install
-
-sudo mvn package wildfly:deploy
-
+- sudo /opt/wildfly/bin/standalone.sh
+- mvn install
+- sudo mvn package wildfly:deploy
+- wsimport -p com.istv.banq.generated -keep http://localhost:8080/banq?wsdl

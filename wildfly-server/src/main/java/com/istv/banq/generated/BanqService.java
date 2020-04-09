@@ -33,26 +33,32 @@ public interface BanqService {
 
     /**
      * 
-     * @param nom
+     * @param amount
+     * @param id
      * @return
      *     returns java.lang.String
      */
     @WebMethod
     @WebResult(partName = "return")
     public String credit(
-        @WebParam(name = "nom", partName = "nom")
-        String nom);
+        @WebParam(name = "id", partName = "id")
+        int id,
+        @WebParam(name = "amount", partName = "amount")
+        double amount);
 
     /**
      * 
-     * @param nom
+     * @param amount
+     * @param id
      * @return
      *     returns java.lang.String
      */
     @WebMethod
     @WebResult(partName = "return")
     public String debit(
-        @WebParam(name = "nom", partName = "nom")
-        String nom);
+        @WebParam(name = "id", partName = "id")
+        int id,
+        @WebParam(name = "amount", partName = "amount")
+        double amount);
 
 }
