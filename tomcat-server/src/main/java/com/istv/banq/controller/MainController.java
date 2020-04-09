@@ -1,12 +1,9 @@
 package com.istv.banq.controller;
 
-
-import com.istv.banq.model.History;
 import com.istv.banq.model.User;
 import com.istv.banq.model.Users;
 import com.istv.banq.service.HistoryService;
 import com.istv.banq.service.UserService;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.Authentication;
@@ -67,4 +64,5 @@ public class MainController {
     public Users findUsers(){
         return userService.findAll();
     }
+
 }
