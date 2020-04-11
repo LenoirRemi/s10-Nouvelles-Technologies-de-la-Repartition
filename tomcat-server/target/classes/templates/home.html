@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/stylesheets/application.css}"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="row">
+    <div class="col-md-2 offset-md-10">
+        <form th:action="@{/logout}" method="get">
+            <button class="btn btn-danger btn-block btn-lg" type="Submit">Logout</button>
+        </form>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <h4 class="display-6 col-md-8 offset-md-2 text-center" th:utext="${userName}"></h4>
+    </div>
+    <div class="text-center mt-5">
+        <h3>Balance : </h3><h3 th:utext="${user.balance}" class="linear-shine"></h3><h3>€</h3>
+    </div>
+    <div class="row mt-5">
+        <div class="col-md-2 offset-md-5">
+            <form th:action="@{/history}" method="get">
+                <button type="submit" class="btn btn-info btn-block btn-lg rotate-icon">
+                    <i class="fa fa-history"></i><br>History
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

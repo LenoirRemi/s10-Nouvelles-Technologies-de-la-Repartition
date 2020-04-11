@@ -2,7 +2,6 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
-
 import java.io.IOException;
 
 public class Main {
@@ -26,6 +25,5 @@ public class Main {
         JsonElement je2 = jp.parse(responseresponseGetJsonSpecificUserAfter);
         String prettyJsonStringAfter = gson.toJson(je2);
         System.out.println(prettyJsonStringAfter);
-
     }
 }

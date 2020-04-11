@@ -35,6 +35,7 @@ public class BanqServiceImpl implements BanqService{
             balance = json.getDouble("balance");
         } catch (Exception e){
             System.out.println(e);
+            return 0.0;
         }
         return balance;
     }
