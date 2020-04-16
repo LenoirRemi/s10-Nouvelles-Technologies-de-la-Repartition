@@ -9,6 +9,5 @@ import org.springframework.stereotype.Repository;
 @Primary
 public interface HistoryRepository extends JpaRepository<History,Integer> {
     History findById(int id);
-
 }
 

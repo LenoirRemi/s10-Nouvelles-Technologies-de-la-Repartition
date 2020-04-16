@@ -38,7 +38,7 @@ public class HistoryService {
             }else{
                 history.setUser2(userRepository.findById(user.getId()));
             }
-            if (user.getBalance() > 0){
+            if (user.getBalance() != 0){
                 history.setBalance(user.getBalance());
             }
         }

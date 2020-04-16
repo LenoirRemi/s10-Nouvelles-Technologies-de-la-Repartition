@@ -50,8 +50,8 @@ public class UserService {
     }
 
     public Users findAll() {
-        var users = (List<User>) userRepositoryCrudJson.findAll();
-        var myUsers = new Users();
+        List<User> users = (List<User>) userRepositoryCrudJson.findAll();
+        Users myUsers = new Users();
         myUsers.setUsers(users);
 
         return myUsers;

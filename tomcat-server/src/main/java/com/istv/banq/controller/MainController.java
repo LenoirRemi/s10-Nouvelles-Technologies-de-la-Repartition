@@ -21,8 +21,8 @@ public class MainController {
     @Autowired
     HistoryService historyService;
 
-    @RequestMapping(value="/home", method = RequestMethod.GET)
-    public ModelAndView home(){
+    @RequestMapping(value = "/home", method = RequestMethod.GET)
+    public ModelAndView home() {
         ModelAndView modelAndView = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByEmail(auth.getName());
@@ -32,8 +32,8 @@ public class MainController {
         return modelAndView;
     }
 
-    @RequestMapping(value="/history", method = RequestMethod.GET)
-    public ModelAndView history(){
+    @RequestMapping(value = "/history", method = RequestMethod.GET)
+    public ModelAndView history() {
         ModelAndView modelAndView = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByEmail(auth.getName());
@@ -46,46 +46,51 @@ public class MainController {
     @ResponseBody
     @PostMapping(path = "/transaction", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public String creditRequest(@RequestBody List<User> users, BindingResult bindingResult) {
-        if(users.size() == 1 || users.size() > 2){
-            return "Erreur dans la transaction ! Une transaction doit etre realise entre 2 users pas plus pas moins !";
-        }else
-        {
-            String response = "";
-            float balance_user1 = 0;
-            float balance_user2 = 0;
-            int id_user1 = 0;
-            int id_user2 = 0;
-            int cpt = 0;
+        String response = "";
+        float balance_user1 = 0;
+        float balance_user2 = 0;
+        int id_user1 = 0;
+        int id_user2 = 0;
+        int cpt = 0;
 
-            for (User user:users) {
-                if(cpt == 0){
-                    id_user1 = user.getId();
-                    balance_user1 = user.getBalance();
-                }
-                else if(cpt == 1){
-                    id_user2 = user.getId();
-                    balance_user2 = user.getBalance();
-                }
-
-                if(balance_user1 != 0 && balance_user2 != 0) {
-                    if (balance_user1 == balance_user2 || balance_user1 + balance_user2 != 0) {
-                        return "Erreur dans les balances ! Ex: user id 1 recoit 100 alors le user id 2 doit perdre 100";
-                    }
-                }
-
-                if (user.getBalance() < 0){
-                    response = response + "User " + user.getId() + " was debited with " + user.getBalance() + "\n";
-                }
-                else {
-                    response = response + "User " + user.getId() + " was credited with " + user.getBalance() + "\n";
-                }
-                cpt ++;
-            }
-            historyService.saveHistory(users);
-            userService.saveBalance(id_user1, balance_user1);
-            userService.saveBalance(id_user2, balance_user2);
-            return response;
+        if (users.size() > 2) {
+            return "Erreur dans la transaction ! Une transaction doit etre realise entre 2 users pas plus !";
         }
+        if (users.size() == 1) {
+            id_user2 = -1;
+            users.add(userService.findUserByname("webservice"));
+        }
+
+        for (User user : users) {
+            System.out.println(user);
+            if (cpt == 0) {
+                id_user1 = user.getId();
+                balance_user1 = user.getBalance();
+                System.out.println("balance user1: "+balance_user1);
+            } else if (cpt == 1) {
+                id_user2 = user.getId();
+                balance_user2 = user.getBalance();
+            }
+
+            if (balance_user1 != 0 && balance_user2 != 0) {
+                if (balance_user1 == balance_user2 || balance_user1 + balance_user2 != 0) {
+                    return "Erreur dans les balances ! Ex: user id 1 recoit 100 alors le user id 2 doit perdre 100";
+                }
+            }
+
+            if (user.getBalance() < 0) {
+                response = response + "User " + user.getId() + " was debited with " + user.getBalance() + "\n";
+            } else {
+                response = response + "User " + user.getId() + " was credited with " + user.getBalance() + "\n";
+            }
+            cpt++;
+        }
+
+        historyService.saveHistory(users);
+        userService.saveBalance(id_user1, balance_user1);
+        userService.saveBalance(id_user2, balance_user2);
+
+        return response;
     }
 
 

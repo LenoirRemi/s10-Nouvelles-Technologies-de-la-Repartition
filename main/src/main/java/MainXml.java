@@ -6,7 +6,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class MainXml {
-    public String httpRequestPostXml(String url_, int id, float balance) throws IOException {
+    public String httpRequestPostXml(String url_, int id1, int id2, float balance1, float balance2) throws IOException {
         URL url = new URL (url_);
 
         HttpURLConnection con = (HttpURLConnection)url.openConnection();
@@ -18,8 +18,11 @@ public class MainXml {
         con.setDoOutput(true);
 
         String xmlInputString = "<Users>" +
-                "<User id=\""+id+"\""+">" +
-                "<balance>"+balance+"</balance>" +
+                "<User id=\""+id1+"\""+">" +
+                "<balance>"+balance1+"</balance>" +
+                "</User>" +
+                "<User id=\""+id2+"\""+">" +
+                "<balance>"+balance2+"</balance>" +
                 "</User>" +
                 "</Users>";
 
