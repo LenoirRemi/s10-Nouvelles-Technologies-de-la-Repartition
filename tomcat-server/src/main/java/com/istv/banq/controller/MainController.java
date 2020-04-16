@@ -62,11 +62,10 @@ public class MainController {
         }
 
         for (User user : users) {
-            System.out.println(user);
+
             if (cpt == 0) {
                 id_user1 = user.getId();
                 balance_user1 = user.getBalance();
-                System.out.println("balance user1: "+balance_user1);
             } else if (cpt == 1) {
                 id_user2 = user.getId();
                 balance_user2 = user.getBalance();

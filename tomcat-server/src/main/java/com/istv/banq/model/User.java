@@ -20,7 +20,7 @@ import org.springframework.data.rest.core.annotation.RestResource;
 @JacksonXmlRootElement(localName = "User")
 public class User implements UserDetails, Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(generator = "USER_ID")
     @Column(name = "USER_ID", nullable=false, unique=true)
     @JacksonXmlProperty(isAttribute = true)
     private int id;
