@@ -59,6 +59,8 @@ Créer au moins 2 utilisateurs en base, via http://localhost:8081/registration
 >> Accès aux informations de l'ensemble des utilisateur: http://localhost:8081/users
 >
 >> Accès aux informations d'un utilisateur spécifique: http://localhost:8081/users/1 (pour l'utilisateur avec l'id 1)
+>
+>> Accès au WSDL: http://localhost:8080/wildfly-server-1.0-SNAPSHOT/BanqServiceImpl?wsdl
 
 > POST
 >> Réaliser une transaction entre 2 utilisateurs: http://localhost:8081/transaction 
