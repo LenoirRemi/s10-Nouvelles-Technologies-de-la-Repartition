@@ -46,19 +46,48 @@ public class MainController {
     @ResponseBody
     @PostMapping(path = "/transaction", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public String creditRequest(@RequestBody List<User> users, BindingResult bindingResult) {
-        historyService.saveHistory(users);
-        String response = "";
-        for (User user:users) {
-            userService.saveBalance(user.getId(), user.getBalance());
-            if (user.getBalance() < 0){
-                response = response + "User " + user.getId() + " was debited with " + user.getBalance() + "\n";
+        if(users.size() == 1 || users.size() > 2){
+            return "Erreur dans la transaction ! Une transaction doit etre realise entre 2 users pas plus pas moins !";
+        }else
+        {
+            String response = "";
+            float balance_user1 = 0;
+            float balance_user2 = 0;
+            int id_user1 = 0;
+            int id_user2 = 0;
+            int cpt = 0;
+
+            for (User user:users) {
+                if(cpt == 0){
+                    id_user1 = user.getId();
+                    balance_user1 = user.getBalance();
+                }
+                else if(cpt == 1){
+                    id_user2 = user.getId();
+                    balance_user2 = user.getBalance();
+                }
+
+                if(balance_user1 != 0 && balance_user2 != 0) {
+                    if (balance_user1 == balance_user2 || balance_user1 + balance_user2 != 0) {
+                        return "Erreur dans les balances ! Ex: user id 1 recoit 100 alors le user id 2 doit perdre 100";
+                    }
+                }
+
+                if (user.getBalance() < 0){
+                    response = response + "User " + user.getId() + " was debited with " + user.getBalance() + "\n";
+                }
+                else {
+                    response = response + "User " + user.getId() + " was credited with " + user.getBalance() + "\n";
+                }
+                cpt ++;
             }
-            else {
-                response = response + "User " + user.getId() + " was credited with " + user.getBalance() + "\n";
-            }
+            historyService.saveHistory(users);
+            userService.saveBalance(id_user1, balance_user1);
+            userService.saveBalance(id_user2, balance_user2);
+            return response;
         }
-        return response;
     }
+
 
     @GetMapping(value = "/users_xml", produces = MediaType.APPLICATION_XML_VALUE)
     public Users findUsers(){
