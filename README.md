@@ -13,6 +13,7 @@ OU
 
 Changer les paramètres de connection à la BDD situés dans:
 > tomcat-server\src\main\resources\application.properties
+
 Deploiement du serveur tomcat qui heberge les services XML et JSON ainsi que les interfaces web. (http://localhost:8081)
 ```sh
 $ cd tomcat-server
