@@ -54,6 +54,27 @@ $ mvn package wildfly:deploy
 #### Prérequis
 
 Créer au moins 2 utilisateurs en base, via http://localhost:8081/registration
+#### HTTP Requests
+> GET
+>> Accès aux informations de l'ensemble des utilisateur: http://localhost:8081/users
+>
+>> Accès aux informations d'un utilisateur spécifique: http://localhost:8081/users/1 (pour l'utilisateur avec l'id 1)
+
+> POST
+>> Réaliser une transaction entre 2 utilisateurs: http://localhost:8081/transaction 
+>> 
+>> Exemple de paramètres:
+>> ```xml
+>><Users>
+>>	<User id="1">	
+>>		<balance>-100</balance>
+>>	</User>
+>>	<User id="2">
+>>		<balance>100</balance>
+>>	</User>
+>></Users>	
+>>```
+>> <em>L'utilisateur avec l'id 1 envoit 100 à l'utilisateur avec l'id 2</em>
 
 Une fois les deux serveur disponibles, les tests sont présents dans ``/main/src/test``.
 
