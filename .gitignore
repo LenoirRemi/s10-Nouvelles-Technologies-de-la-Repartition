@@ -24,6 +24,7 @@ hs_err_pid*
 ### Java ###
 # Compiled class file
 *.class
+/target/**
 
 ### macOS ###
 # General
