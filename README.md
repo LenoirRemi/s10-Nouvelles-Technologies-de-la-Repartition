@@ -1,5 +1,7 @@
 # TP Nouvelles Technologies de la Répartition
 
+Video de présentation : https://www.youtube.com/watch?v=WUrFa3_vHEI
+
 ### Serveur Tomcat
 #### Prérequis
 
