@@ -3,7 +3,7 @@ package com.istv.banq.model;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
 
 @Entity
 @Table(name = "HISTORY")
@@ -25,6 +25,7 @@ public class History {
     private User user2;
 
     public History() {
+        date = new Date();
     }
 
     public int getId() {
