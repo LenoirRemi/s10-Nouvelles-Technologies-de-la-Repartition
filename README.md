@@ -56,9 +56,11 @@ $ mvn package wildfly:deploy
 Créer au moins 2 utilisateurs en base, via http://localhost:8081/registration
 #### HTTP Requests
 > GET
->> Accès aux informations de l'ensemble des utilisateur: http://localhost:8081/users
+>> Accès aux informations de l'ensemble des utilisateurs en JSON: http://localhost:8081/users
 >
 >> Accès aux informations d'un utilisateur spécifique: http://localhost:8081/users/1 (pour l'utilisateur avec l'id 1)
+>
+>> Accès aux informations de l'ensemble des utilisateurs en XML: http://localhost:8081/users_xml
 >
 >> Accès au WSDL: http://localhost:8080/wildfly-server-1.0-SNAPSHOT/BanqServiceImpl?wsdl
 
