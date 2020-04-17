@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.istv</groupId>
-    <artifactId>banq</artifactId>
+    <artifactId>banqTest</artifactId>
     <name>test</name>
     <version>0.0.1-SNAPSHOT</version>
     <description>TP banq tests</description>
