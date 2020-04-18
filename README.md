@@ -36,6 +36,11 @@ $ java -jar banq-0.0.1-SNAPSHOT.jar
 
 
 ### Serveur Wildfly
+
+#### Prérequis
+
+> JDK 8
+
 Déploiement du web service sur Wildfly qui hébérge des services pour les sites web de commerce. (http://localhost:8080)
 
 (Pour deployer, un serveur Wildfly doit etre lancé : ``$ ./standalone.sh``)
